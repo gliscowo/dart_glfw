@@ -13,28 +13,28 @@ class GLFW {
 
   /// GLFW API functions
   int init() => _glfwInit();
-  late final _glfwInit = _lookup<NativeFunction<Int Function()>>('glfwInit').asFunction<int Function()>(isLeaf: true);
+  late final _glfwInit = _lookup<NativeFunction<Int Function()>>('glfwInit').asFunction<int Function()>(isLeaf: false);
 
   void terminate() => _glfwTerminate();
   late final _glfwTerminate =
-      _lookup<NativeFunction<Void Function()>>('glfwTerminate').asFunction<void Function()>(isLeaf: true);
+      _lookup<NativeFunction<Void Function()>>('glfwTerminate').asFunction<void Function()>(isLeaf: false);
 
   void initHint(int hint, int value) => _glfwInitHint(hint, value);
   late final _glfwInitHint = _lookup<NativeFunction<Void Function(Int, Int)>>('glfwInitHint')
-      .asFunction<void Function(int, int)>(isLeaf: true);
+      .asFunction<void Function(int, int)>(isLeaf: false);
 
   void getVersion(Pointer<Int> major, Pointer<Int> minor, Pointer<Int> rev) => _glfwGetVersion(major, minor, rev);
   late final _glfwGetVersion =
       _lookup<NativeFunction<Void Function(Pointer<Int>, Pointer<Int>, Pointer<Int>)>>('glfwGetVersion')
-          .asFunction<void Function(Pointer<Int>, Pointer<Int>, Pointer<Int>)>(isLeaf: true);
+          .asFunction<void Function(Pointer<Int>, Pointer<Int>, Pointer<Int>)>(isLeaf: false);
 
   Pointer<Char> getVersionString() => _glfwGetVersionString();
   late final _glfwGetVersionString = _lookup<NativeFunction<Pointer<Char> Function()>>('glfwGetVersionString')
-      .asFunction<Pointer<Char> Function()>(isLeaf: true);
+      .asFunction<Pointer<Char> Function()>(isLeaf: false);
 
   int getError(Pointer<Pointer<Char>> description) => _glfwGetError(description);
   late final _glfwGetError = _lookup<NativeFunction<Int Function(Pointer<Pointer<Char>>)>>('glfwGetError')
-      .asFunction<int Function(Pointer<Pointer<Char>>)>(isLeaf: true);
+      .asFunction<int Function(Pointer<Pointer<Char>>)>(isLeaf: false);
 
   Pointer<NativeFunction<Void Function(Int, Pointer<Char>)>> setErrorCallback(
           Pointer<NativeFunction<Void Function(Int, Pointer<Char>)>> callback) =>
@@ -50,17 +50,17 @@ class GLFW {
   Pointer<Pointer<GLFWmonitor>> getMonitors(Pointer<Int> count) => _glfwGetMonitors(count);
   late final _glfwGetMonitors =
       _lookup<NativeFunction<Pointer<Pointer<GLFWmonitor>> Function(Pointer<Int>)>>('glfwGetMonitors')
-          .asFunction<Pointer<Pointer<GLFWmonitor>> Function(Pointer<Int>)>(isLeaf: true);
+          .asFunction<Pointer<Pointer<GLFWmonitor>> Function(Pointer<Int>)>(isLeaf: false);
 
   Pointer<GLFWmonitor> getPrimaryMonitor() => _glfwGetPrimaryMonitor();
   late final _glfwGetPrimaryMonitor = _lookup<NativeFunction<Pointer<GLFWmonitor> Function()>>('glfwGetPrimaryMonitor')
-      .asFunction<Pointer<GLFWmonitor> Function()>(isLeaf: true);
+      .asFunction<Pointer<GLFWmonitor> Function()>(isLeaf: false);
 
   void getMonitorPos(Pointer<GLFWmonitor> monitor, Pointer<Int> xpos, Pointer<Int> ypos) =>
       _glfwGetMonitorPos(monitor, xpos, ypos);
   late final _glfwGetMonitorPos =
       _lookup<NativeFunction<Void Function(Pointer<GLFWmonitor>, Pointer<Int>, Pointer<Int>)>>('glfwGetMonitorPos')
-          .asFunction<void Function(Pointer<GLFWmonitor>, Pointer<Int>, Pointer<Int>)>(isLeaf: true);
+          .asFunction<void Function(Pointer<GLFWmonitor>, Pointer<Int>, Pointer<Int>)>(isLeaf: false);
 
   void getMonitorWorkarea(Pointer<GLFWmonitor> monitor, Pointer<Int> xpos, Pointer<Int> ypos, Pointer<Int> width,
           Pointer<Int> height) =>
@@ -70,37 +70,37 @@ class GLFW {
               Void Function(Pointer<GLFWmonitor>, Pointer<Int>, Pointer<Int>, Pointer<Int>,
                   Pointer<Int>)>>('glfwGetMonitorWorkarea')
       .asFunction<void Function(Pointer<GLFWmonitor>, Pointer<Int>, Pointer<Int>, Pointer<Int>, Pointer<Int>)>(
-          isLeaf: true);
+          isLeaf: false);
 
   void getMonitorPhysicalSize(Pointer<GLFWmonitor> monitor, Pointer<Int> widthMM, Pointer<Int> heightMM) =>
       _glfwGetMonitorPhysicalSize(monitor, widthMM, heightMM);
   late final _glfwGetMonitorPhysicalSize =
       _lookup<NativeFunction<Void Function(Pointer<GLFWmonitor>, Pointer<Int>, Pointer<Int>)>>(
               'glfwGetMonitorPhysicalSize')
-          .asFunction<void Function(Pointer<GLFWmonitor>, Pointer<Int>, Pointer<Int>)>(isLeaf: true);
+          .asFunction<void Function(Pointer<GLFWmonitor>, Pointer<Int>, Pointer<Int>)>(isLeaf: false);
 
   void getMonitorContentScale(Pointer<GLFWmonitor> monitor, Pointer<Float> xscale, Pointer<Float> yscale) =>
       _glfwGetMonitorContentScale(monitor, xscale, yscale);
   late final _glfwGetMonitorContentScale =
       _lookup<NativeFunction<Void Function(Pointer<GLFWmonitor>, Pointer<Float>, Pointer<Float>)>>(
               'glfwGetMonitorContentScale')
-          .asFunction<void Function(Pointer<GLFWmonitor>, Pointer<Float>, Pointer<Float>)>(isLeaf: true);
+          .asFunction<void Function(Pointer<GLFWmonitor>, Pointer<Float>, Pointer<Float>)>(isLeaf: false);
 
   Pointer<Char> getMonitorName(Pointer<GLFWmonitor> monitor) => _glfwGetMonitorName(monitor);
   late final _glfwGetMonitorName =
       _lookup<NativeFunction<Pointer<Char> Function(Pointer<GLFWmonitor>)>>('glfwGetMonitorName')
-          .asFunction<Pointer<Char> Function(Pointer<GLFWmonitor>)>(isLeaf: true);
+          .asFunction<Pointer<Char> Function(Pointer<GLFWmonitor>)>(isLeaf: false);
 
   void setMonitorUserPointer(Pointer<GLFWmonitor> monitor, Pointer<Void> pointer) =>
       _glfwSetMonitorUserPointer(monitor, pointer);
   late final _glfwSetMonitorUserPointer =
       _lookup<NativeFunction<Void Function(Pointer<GLFWmonitor>, Pointer<Void>)>>('glfwSetMonitorUserPointer')
-          .asFunction<void Function(Pointer<GLFWmonitor>, Pointer<Void>)>(isLeaf: true);
+          .asFunction<void Function(Pointer<GLFWmonitor>, Pointer<Void>)>(isLeaf: false);
 
   Pointer<Void> getMonitorUserPointer(Pointer<GLFWmonitor> monitor) => _glfwGetMonitorUserPointer(monitor);
   late final _glfwGetMonitorUserPointer =
       _lookup<NativeFunction<Pointer<Void> Function(Pointer<GLFWmonitor>)>>('glfwGetMonitorUserPointer')
-          .asFunction<Pointer<Void> Function(Pointer<GLFWmonitor>)>(isLeaf: true);
+          .asFunction<Pointer<Void> Function(Pointer<GLFWmonitor>)>(isLeaf: false);
 
   Pointer<NativeFunction<Void Function(Pointer<GLFWmonitor>, Int)>> setMonitorCallback(
           Pointer<NativeFunction<Void Function(Pointer<GLFWmonitor>, Int)>> callback) =>
@@ -117,38 +117,38 @@ class GLFW {
       _glfwGetVideoModes(monitor, count);
   late final _glfwGetVideoModes =
       _lookup<NativeFunction<Pointer<GLFWvidmode> Function(Pointer<GLFWmonitor>, Pointer<Int>)>>('glfwGetVideoModes')
-          .asFunction<Pointer<GLFWvidmode> Function(Pointer<GLFWmonitor>, Pointer<Int>)>(isLeaf: true);
+          .asFunction<Pointer<GLFWvidmode> Function(Pointer<GLFWmonitor>, Pointer<Int>)>(isLeaf: false);
 
   Pointer<GLFWvidmode> getVideoMode(Pointer<GLFWmonitor> monitor) => _glfwGetVideoMode(monitor);
   late final _glfwGetVideoMode =
       _lookup<NativeFunction<Pointer<GLFWvidmode> Function(Pointer<GLFWmonitor>)>>('glfwGetVideoMode')
-          .asFunction<Pointer<GLFWvidmode> Function(Pointer<GLFWmonitor>)>(isLeaf: true);
+          .asFunction<Pointer<GLFWvidmode> Function(Pointer<GLFWmonitor>)>(isLeaf: false);
 
   void setGamma(Pointer<GLFWmonitor> monitor, double gamma) => _glfwSetGamma(monitor, gamma);
   late final _glfwSetGamma = _lookup<NativeFunction<Void Function(Pointer<GLFWmonitor>, Float)>>('glfwSetGamma')
-      .asFunction<void Function(Pointer<GLFWmonitor>, double)>(isLeaf: true);
+      .asFunction<void Function(Pointer<GLFWmonitor>, double)>(isLeaf: false);
 
   Pointer<GLFWgammaramp> getGammaRamp(Pointer<GLFWmonitor> monitor) => _glfwGetGammaRamp(monitor);
   late final _glfwGetGammaRamp =
       _lookup<NativeFunction<Pointer<GLFWgammaramp> Function(Pointer<GLFWmonitor>)>>('glfwGetGammaRamp')
-          .asFunction<Pointer<GLFWgammaramp> Function(Pointer<GLFWmonitor>)>(isLeaf: true);
+          .asFunction<Pointer<GLFWgammaramp> Function(Pointer<GLFWmonitor>)>(isLeaf: false);
 
   void setGammaRamp(Pointer<GLFWmonitor> monitor, Pointer<GLFWgammaramp> ramp) => _glfwSetGammaRamp(monitor, ramp);
   late final _glfwSetGammaRamp =
       _lookup<NativeFunction<Void Function(Pointer<GLFWmonitor>, Pointer<GLFWgammaramp>)>>('glfwSetGammaRamp')
-          .asFunction<void Function(Pointer<GLFWmonitor>, Pointer<GLFWgammaramp>)>(isLeaf: true);
+          .asFunction<void Function(Pointer<GLFWmonitor>, Pointer<GLFWgammaramp>)>(isLeaf: false);
 
   void defaultWindowHints() => _glfwDefaultWindowHints();
   late final _glfwDefaultWindowHints =
-      _lookup<NativeFunction<Void Function()>>('glfwDefaultWindowHints').asFunction<void Function()>(isLeaf: true);
+      _lookup<NativeFunction<Void Function()>>('glfwDefaultWindowHints').asFunction<void Function()>(isLeaf: false);
 
   void windowHint(int hint, int value) => _glfwWindowHint(hint, value);
   late final _glfwWindowHint = _lookup<NativeFunction<Void Function(Int, Int)>>('glfwWindowHint')
-      .asFunction<void Function(int, int)>(isLeaf: true);
+      .asFunction<void Function(int, int)>(isLeaf: false);
 
   void windowHintString(int hint, Pointer<Char> value) => _glfwWindowHintString(hint, value);
   late final _glfwWindowHintString = _lookup<NativeFunction<Void Function(Int, Pointer<Char>)>>('glfwWindowHintString')
-      .asFunction<void Function(int, Pointer<Char>)>(isLeaf: true);
+      .asFunction<void Function(int, Pointer<Char>)>(isLeaf: false);
 
   Pointer<GLFWwindow> createWindow(
           int width, int height, Pointer<Char> title, Pointer<GLFWmonitor> monitor, Pointer<GLFWwindow> share) =>
@@ -158,72 +158,72 @@ class GLFW {
               Pointer<GLFWwindow> Function(
                   Int, Int, Pointer<Char>, Pointer<GLFWmonitor>, Pointer<GLFWwindow>)>>('glfwCreateWindow')
       .asFunction<Pointer<GLFWwindow> Function(int, int, Pointer<Char>, Pointer<GLFWmonitor>, Pointer<GLFWwindow>)>(
-          isLeaf: true);
+          isLeaf: false);
 
   void destroyWindow(Pointer<GLFWwindow> window) => _glfwDestroyWindow(window);
   late final _glfwDestroyWindow = _lookup<NativeFunction<Void Function(Pointer<GLFWwindow>)>>('glfwDestroyWindow')
-      .asFunction<void Function(Pointer<GLFWwindow>)>(isLeaf: true);
+      .asFunction<void Function(Pointer<GLFWwindow>)>(isLeaf: false);
 
   int windowShouldClose(Pointer<GLFWwindow> window) => _glfwWindowShouldClose(window);
   late final _glfwWindowShouldClose =
       _lookup<NativeFunction<Int Function(Pointer<GLFWwindow>)>>('glfwWindowShouldClose')
-          .asFunction<int Function(Pointer<GLFWwindow>)>(isLeaf: true);
+          .asFunction<int Function(Pointer<GLFWwindow>)>(isLeaf: false);
 
   void setWindowShouldClose(Pointer<GLFWwindow> window, int value) => _glfwSetWindowShouldClose(window, value);
   late final _glfwSetWindowShouldClose =
       _lookup<NativeFunction<Void Function(Pointer<GLFWwindow>, Int)>>('glfwSetWindowShouldClose')
-          .asFunction<void Function(Pointer<GLFWwindow>, int)>(isLeaf: true);
+          .asFunction<void Function(Pointer<GLFWwindow>, int)>(isLeaf: false);
 
   void setWindowTitle(Pointer<GLFWwindow> window, Pointer<Char> title) => _glfwSetWindowTitle(window, title);
   late final _glfwSetWindowTitle =
       _lookup<NativeFunction<Void Function(Pointer<GLFWwindow>, Pointer<Char>)>>('glfwSetWindowTitle')
-          .asFunction<void Function(Pointer<GLFWwindow>, Pointer<Char>)>(isLeaf: true);
+          .asFunction<void Function(Pointer<GLFWwindow>, Pointer<Char>)>(isLeaf: false);
 
   void setWindowIcon(Pointer<GLFWwindow> window, int count, Pointer<GLFWimage> images) =>
       _glfwSetWindowIcon(window, count, images);
   late final _glfwSetWindowIcon =
       _lookup<NativeFunction<Void Function(Pointer<GLFWwindow>, Int, Pointer<GLFWimage>)>>('glfwSetWindowIcon')
-          .asFunction<void Function(Pointer<GLFWwindow>, int, Pointer<GLFWimage>)>(isLeaf: true);
+          .asFunction<void Function(Pointer<GLFWwindow>, int, Pointer<GLFWimage>)>(isLeaf: false);
 
   void getWindowPos(Pointer<GLFWwindow> window, Pointer<Int> xpos, Pointer<Int> ypos) =>
       _glfwGetWindowPos(window, xpos, ypos);
   late final _glfwGetWindowPos =
       _lookup<NativeFunction<Void Function(Pointer<GLFWwindow>, Pointer<Int>, Pointer<Int>)>>('glfwGetWindowPos')
-          .asFunction<void Function(Pointer<GLFWwindow>, Pointer<Int>, Pointer<Int>)>(isLeaf: true);
+          .asFunction<void Function(Pointer<GLFWwindow>, Pointer<Int>, Pointer<Int>)>(isLeaf: false);
 
   void setWindowPos(Pointer<GLFWwindow> window, int xpos, int ypos) => _glfwSetWindowPos(window, xpos, ypos);
   late final _glfwSetWindowPos =
       _lookup<NativeFunction<Void Function(Pointer<GLFWwindow>, Int, Int)>>('glfwSetWindowPos')
-          .asFunction<void Function(Pointer<GLFWwindow>, int, int)>(isLeaf: true);
+          .asFunction<void Function(Pointer<GLFWwindow>, int, int)>(isLeaf: false);
 
   void getWindowSize(Pointer<GLFWwindow> window, Pointer<Int> width, Pointer<Int> height) =>
       _glfwGetWindowSize(window, width, height);
   late final _glfwGetWindowSize =
       _lookup<NativeFunction<Void Function(Pointer<GLFWwindow>, Pointer<Int>, Pointer<Int>)>>('glfwGetWindowSize')
-          .asFunction<void Function(Pointer<GLFWwindow>, Pointer<Int>, Pointer<Int>)>(isLeaf: true);
+          .asFunction<void Function(Pointer<GLFWwindow>, Pointer<Int>, Pointer<Int>)>(isLeaf: false);
 
   void setWindowSizeLimits(Pointer<GLFWwindow> window, int minwidth, int minheight, int maxwidth, int maxheight) =>
       _glfwSetWindowSizeLimits(window, minwidth, minheight, maxwidth, maxheight);
   late final _glfwSetWindowSizeLimits =
       _lookup<NativeFunction<Void Function(Pointer<GLFWwindow>, Int, Int, Int, Int)>>('glfwSetWindowSizeLimits')
-          .asFunction<void Function(Pointer<GLFWwindow>, int, int, int, int)>(isLeaf: true);
+          .asFunction<void Function(Pointer<GLFWwindow>, int, int, int, int)>(isLeaf: false);
 
   void setWindowAspectRatio(Pointer<GLFWwindow> window, int numer, int denom) =>
       _glfwSetWindowAspectRatio(window, numer, denom);
   late final _glfwSetWindowAspectRatio =
       _lookup<NativeFunction<Void Function(Pointer<GLFWwindow>, Int, Int)>>('glfwSetWindowAspectRatio')
-          .asFunction<void Function(Pointer<GLFWwindow>, int, int)>(isLeaf: true);
+          .asFunction<void Function(Pointer<GLFWwindow>, int, int)>(isLeaf: false);
 
   void setWindowSize(Pointer<GLFWwindow> window, int width, int height) => _glfwSetWindowSize(window, width, height);
   late final _glfwSetWindowSize =
       _lookup<NativeFunction<Void Function(Pointer<GLFWwindow>, Int, Int)>>('glfwSetWindowSize')
-          .asFunction<void Function(Pointer<GLFWwindow>, int, int)>(isLeaf: true);
+          .asFunction<void Function(Pointer<GLFWwindow>, int, int)>(isLeaf: false);
 
   void getFramebufferSize(Pointer<GLFWwindow> window, Pointer<Int> width, Pointer<Int> height) =>
       _glfwGetFramebufferSize(window, width, height);
   late final _glfwGetFramebufferSize =
       _lookup<NativeFunction<Void Function(Pointer<GLFWwindow>, Pointer<Int>, Pointer<Int>)>>('glfwGetFramebufferSize')
-          .asFunction<void Function(Pointer<GLFWwindow>, Pointer<Int>, Pointer<Int>)>(isLeaf: true);
+          .asFunction<void Function(Pointer<GLFWwindow>, Pointer<Int>, Pointer<Int>)>(isLeaf: false);
 
   void getWindowFrameSize(
           Pointer<GLFWwindow> window, Pointer<Int> left, Pointer<Int> top, Pointer<Int> right, Pointer<Int> bottom) =>
@@ -233,58 +233,58 @@ class GLFW {
               Void Function(Pointer<GLFWwindow>, Pointer<Int>, Pointer<Int>, Pointer<Int>,
                   Pointer<Int>)>>('glfwGetWindowFrameSize')
       .asFunction<void Function(Pointer<GLFWwindow>, Pointer<Int>, Pointer<Int>, Pointer<Int>, Pointer<Int>)>(
-          isLeaf: true);
+          isLeaf: false);
 
   void getWindowContentScale(Pointer<GLFWwindow> window, Pointer<Float> xscale, Pointer<Float> yscale) =>
       _glfwGetWindowContentScale(window, xscale, yscale);
   late final _glfwGetWindowContentScale =
       _lookup<NativeFunction<Void Function(Pointer<GLFWwindow>, Pointer<Float>, Pointer<Float>)>>(
               'glfwGetWindowContentScale')
-          .asFunction<void Function(Pointer<GLFWwindow>, Pointer<Float>, Pointer<Float>)>(isLeaf: true);
+          .asFunction<void Function(Pointer<GLFWwindow>, Pointer<Float>, Pointer<Float>)>(isLeaf: false);
 
   double getWindowOpacity(Pointer<GLFWwindow> window) => _glfwGetWindowOpacity(window);
   late final _glfwGetWindowOpacity =
       _lookup<NativeFunction<Float Function(Pointer<GLFWwindow>)>>('glfwGetWindowOpacity')
-          .asFunction<double Function(Pointer<GLFWwindow>)>(isLeaf: true);
+          .asFunction<double Function(Pointer<GLFWwindow>)>(isLeaf: false);
 
   void setWindowOpacity(Pointer<GLFWwindow> window, double opacity) => _glfwSetWindowOpacity(window, opacity);
   late final _glfwSetWindowOpacity =
       _lookup<NativeFunction<Void Function(Pointer<GLFWwindow>, Float)>>('glfwSetWindowOpacity')
-          .asFunction<void Function(Pointer<GLFWwindow>, double)>(isLeaf: true);
+          .asFunction<void Function(Pointer<GLFWwindow>, double)>(isLeaf: false);
 
   void iconifyWindow(Pointer<GLFWwindow> window) => _glfwIconifyWindow(window);
   late final _glfwIconifyWindow = _lookup<NativeFunction<Void Function(Pointer<GLFWwindow>)>>('glfwIconifyWindow')
-      .asFunction<void Function(Pointer<GLFWwindow>)>(isLeaf: true);
+      .asFunction<void Function(Pointer<GLFWwindow>)>(isLeaf: false);
 
   void restoreWindow(Pointer<GLFWwindow> window) => _glfwRestoreWindow(window);
   late final _glfwRestoreWindow = _lookup<NativeFunction<Void Function(Pointer<GLFWwindow>)>>('glfwRestoreWindow')
-      .asFunction<void Function(Pointer<GLFWwindow>)>(isLeaf: true);
+      .asFunction<void Function(Pointer<GLFWwindow>)>(isLeaf: false);
 
   void maximizeWindow(Pointer<GLFWwindow> window) => _glfwMaximizeWindow(window);
   late final _glfwMaximizeWindow = _lookup<NativeFunction<Void Function(Pointer<GLFWwindow>)>>('glfwMaximizeWindow')
-      .asFunction<void Function(Pointer<GLFWwindow>)>(isLeaf: true);
+      .asFunction<void Function(Pointer<GLFWwindow>)>(isLeaf: false);
 
   void showWindow(Pointer<GLFWwindow> window) => _glfwShowWindow(window);
   late final _glfwShowWindow = _lookup<NativeFunction<Void Function(Pointer<GLFWwindow>)>>('glfwShowWindow')
-      .asFunction<void Function(Pointer<GLFWwindow>)>(isLeaf: true);
+      .asFunction<void Function(Pointer<GLFWwindow>)>(isLeaf: false);
 
   void hideWindow(Pointer<GLFWwindow> window) => _glfwHideWindow(window);
   late final _glfwHideWindow = _lookup<NativeFunction<Void Function(Pointer<GLFWwindow>)>>('glfwHideWindow')
-      .asFunction<void Function(Pointer<GLFWwindow>)>(isLeaf: true);
+      .asFunction<void Function(Pointer<GLFWwindow>)>(isLeaf: false);
 
   void focusWindow(Pointer<GLFWwindow> window) => _glfwFocusWindow(window);
   late final _glfwFocusWindow = _lookup<NativeFunction<Void Function(Pointer<GLFWwindow>)>>('glfwFocusWindow')
-      .asFunction<void Function(Pointer<GLFWwindow>)>(isLeaf: true);
+      .asFunction<void Function(Pointer<GLFWwindow>)>(isLeaf: false);
 
   void requestWindowAttention(Pointer<GLFWwindow> window) => _glfwRequestWindowAttention(window);
   late final _glfwRequestWindowAttention =
       _lookup<NativeFunction<Void Function(Pointer<GLFWwindow>)>>('glfwRequestWindowAttention')
-          .asFunction<void Function(Pointer<GLFWwindow>)>(isLeaf: true);
+          .asFunction<void Function(Pointer<GLFWwindow>)>(isLeaf: false);
 
   Pointer<GLFWmonitor> getWindowMonitor(Pointer<GLFWwindow> window) => _glfwGetWindowMonitor(window);
   late final _glfwGetWindowMonitor =
       _lookup<NativeFunction<Pointer<GLFWmonitor> Function(Pointer<GLFWwindow>)>>('glfwGetWindowMonitor')
-          .asFunction<Pointer<GLFWmonitor> Function(Pointer<GLFWwindow>)>(isLeaf: true);
+          .asFunction<Pointer<GLFWmonitor> Function(Pointer<GLFWwindow>)>(isLeaf: false);
 
   void setWindowMonitor(Pointer<GLFWwindow> window, Pointer<GLFWmonitor> monitor, int xpos, int ypos, int width,
           int height, int refreshRate) =>
@@ -292,29 +292,29 @@ class GLFW {
   late final _glfwSetWindowMonitor =
       _lookup<NativeFunction<Void Function(Pointer<GLFWwindow>, Pointer<GLFWmonitor>, Int, Int, Int, Int, Int)>>(
               'glfwSetWindowMonitor')
-          .asFunction<void Function(Pointer<GLFWwindow>, Pointer<GLFWmonitor>, int, int, int, int, int)>(isLeaf: true);
+          .asFunction<void Function(Pointer<GLFWwindow>, Pointer<GLFWmonitor>, int, int, int, int, int)>(isLeaf: false);
 
   int getWindowAttrib(Pointer<GLFWwindow> window, int attrib) => _glfwGetWindowAttrib(window, attrib);
   late final _glfwGetWindowAttrib =
       _lookup<NativeFunction<Int Function(Pointer<GLFWwindow>, Int)>>('glfwGetWindowAttrib')
-          .asFunction<int Function(Pointer<GLFWwindow>, int)>(isLeaf: true);
+          .asFunction<int Function(Pointer<GLFWwindow>, int)>(isLeaf: false);
 
   void setWindowAttrib(Pointer<GLFWwindow> window, int attrib, int value) =>
       _glfwSetWindowAttrib(window, attrib, value);
   late final _glfwSetWindowAttrib =
       _lookup<NativeFunction<Void Function(Pointer<GLFWwindow>, Int, Int)>>('glfwSetWindowAttrib')
-          .asFunction<void Function(Pointer<GLFWwindow>, int, int)>(isLeaf: true);
+          .asFunction<void Function(Pointer<GLFWwindow>, int, int)>(isLeaf: false);
 
   void setWindowUserPointer(Pointer<GLFWwindow> window, Pointer<Void> pointer) =>
       _glfwSetWindowUserPointer(window, pointer);
   late final _glfwSetWindowUserPointer =
       _lookup<NativeFunction<Void Function(Pointer<GLFWwindow>, Pointer<Void>)>>('glfwSetWindowUserPointer')
-          .asFunction<void Function(Pointer<GLFWwindow>, Pointer<Void>)>(isLeaf: true);
+          .asFunction<void Function(Pointer<GLFWwindow>, Pointer<Void>)>(isLeaf: false);
 
   Pointer<Void> getWindowUserPointer(Pointer<GLFWwindow> window) => _glfwGetWindowUserPointer(window);
   late final _glfwGetWindowUserPointer =
       _lookup<NativeFunction<Pointer<Void> Function(Pointer<GLFWwindow>)>>('glfwGetWindowUserPointer')
-          .asFunction<Pointer<Void> Function(Pointer<GLFWwindow>)>(isLeaf: true);
+          .asFunction<Pointer<Void> Function(Pointer<GLFWwindow>)>(isLeaf: false);
 
   Pointer<NativeFunction<Void Function(Pointer<GLFWwindow>, Int, Int)>> setWindowPosCallback(
           Pointer<GLFWwindow> window, Pointer<NativeFunction<Void Function(Pointer<GLFWwindow>, Int, Int)>> callback) =>
@@ -420,79 +420,79 @@ class GLFW {
 
   void pollEvents() => _glfwPollEvents();
   late final _glfwPollEvents =
-      _lookup<NativeFunction<Void Function()>>('glfwPollEvents').asFunction<void Function()>(isLeaf: true);
+      _lookup<NativeFunction<Void Function()>>('glfwPollEvents').asFunction<void Function()>(isLeaf: false);
 
   void waitEvents() => _glfwWaitEvents();
   late final _glfwWaitEvents =
-      _lookup<NativeFunction<Void Function()>>('glfwWaitEvents').asFunction<void Function()>(isLeaf: true);
+      _lookup<NativeFunction<Void Function()>>('glfwWaitEvents').asFunction<void Function()>(isLeaf: false);
 
   void waitEventsTimeout(double timeout) => _glfwWaitEventsTimeout(timeout);
   late final _glfwWaitEventsTimeout = _lookup<NativeFunction<Void Function(Double)>>('glfwWaitEventsTimeout')
-      .asFunction<void Function(double)>(isLeaf: true);
+      .asFunction<void Function(double)>(isLeaf: false);
 
   void postEmptyEvent() => _glfwPostEmptyEvent();
   late final _glfwPostEmptyEvent =
-      _lookup<NativeFunction<Void Function()>>('glfwPostEmptyEvent').asFunction<void Function()>(isLeaf: true);
+      _lookup<NativeFunction<Void Function()>>('glfwPostEmptyEvent').asFunction<void Function()>(isLeaf: false);
 
   int getInputMode(Pointer<GLFWwindow> window, int mode) => _glfwGetInputMode(window, mode);
   late final _glfwGetInputMode = _lookup<NativeFunction<Int Function(Pointer<GLFWwindow>, Int)>>('glfwGetInputMode')
-      .asFunction<int Function(Pointer<GLFWwindow>, int)>(isLeaf: true);
+      .asFunction<int Function(Pointer<GLFWwindow>, int)>(isLeaf: false);
 
   void setInputMode(Pointer<GLFWwindow> window, int mode, int value) => _glfwSetInputMode(window, mode, value);
   late final _glfwSetInputMode =
       _lookup<NativeFunction<Void Function(Pointer<GLFWwindow>, Int, Int)>>('glfwSetInputMode')
-          .asFunction<void Function(Pointer<GLFWwindow>, int, int)>(isLeaf: true);
+          .asFunction<void Function(Pointer<GLFWwindow>, int, int)>(isLeaf: false);
 
   int rawMouseMotionSupported() => _glfwRawMouseMotionSupported();
   late final _glfwRawMouseMotionSupported =
-      _lookup<NativeFunction<Int Function()>>('glfwRawMouseMotionSupported').asFunction<int Function()>(isLeaf: true);
+      _lookup<NativeFunction<Int Function()>>('glfwRawMouseMotionSupported').asFunction<int Function()>(isLeaf: false);
 
   Pointer<Char> getKeyName(int key, int scancode) => _glfwGetKeyName(key, scancode);
   late final _glfwGetKeyName = _lookup<NativeFunction<Pointer<Char> Function(Int, Int)>>('glfwGetKeyName')
-      .asFunction<Pointer<Char> Function(int, int)>(isLeaf: true);
+      .asFunction<Pointer<Char> Function(int, int)>(isLeaf: false);
 
   int getKeyScancode(int key) => _glfwGetKeyScancode(key);
   late final _glfwGetKeyScancode =
-      _lookup<NativeFunction<Int Function(Int)>>('glfwGetKeyScancode').asFunction<int Function(int)>(isLeaf: true);
+      _lookup<NativeFunction<Int Function(Int)>>('glfwGetKeyScancode').asFunction<int Function(int)>(isLeaf: false);
 
   int getKey(Pointer<GLFWwindow> window, int key) => _glfwGetKey(window, key);
   late final _glfwGetKey = _lookup<NativeFunction<Int Function(Pointer<GLFWwindow>, Int)>>('glfwGetKey')
-      .asFunction<int Function(Pointer<GLFWwindow>, int)>(isLeaf: true);
+      .asFunction<int Function(Pointer<GLFWwindow>, int)>(isLeaf: false);
 
   int getMouseButton(Pointer<GLFWwindow> window, int button) => _glfwGetMouseButton(window, button);
   late final _glfwGetMouseButton = _lookup<NativeFunction<Int Function(Pointer<GLFWwindow>, Int)>>('glfwGetMouseButton')
-      .asFunction<int Function(Pointer<GLFWwindow>, int)>(isLeaf: true);
+      .asFunction<int Function(Pointer<GLFWwindow>, int)>(isLeaf: false);
 
   void getCursorPos(Pointer<GLFWwindow> window, Pointer<Double> xpos, Pointer<Double> ypos) =>
       _glfwGetCursorPos(window, xpos, ypos);
   late final _glfwGetCursorPos =
       _lookup<NativeFunction<Void Function(Pointer<GLFWwindow>, Pointer<Double>, Pointer<Double>)>>('glfwGetCursorPos')
-          .asFunction<void Function(Pointer<GLFWwindow>, Pointer<Double>, Pointer<Double>)>(isLeaf: true);
+          .asFunction<void Function(Pointer<GLFWwindow>, Pointer<Double>, Pointer<Double>)>(isLeaf: false);
 
   void setCursorPos(Pointer<GLFWwindow> window, double xpos, double ypos) => _glfwSetCursorPos(window, xpos, ypos);
   late final _glfwSetCursorPos =
       _lookup<NativeFunction<Void Function(Pointer<GLFWwindow>, Double, Double)>>('glfwSetCursorPos')
-          .asFunction<void Function(Pointer<GLFWwindow>, double, double)>(isLeaf: true);
+          .asFunction<void Function(Pointer<GLFWwindow>, double, double)>(isLeaf: false);
 
   Pointer<GLFWcursor> createCursor(Pointer<GLFWimage> image, int xhot, int yhot) =>
       _glfwCreateCursor(image, xhot, yhot);
   late final _glfwCreateCursor =
       _lookup<NativeFunction<Pointer<GLFWcursor> Function(Pointer<GLFWimage>, Int, Int)>>('glfwCreateCursor')
-          .asFunction<Pointer<GLFWcursor> Function(Pointer<GLFWimage>, int, int)>(isLeaf: true);
+          .asFunction<Pointer<GLFWcursor> Function(Pointer<GLFWimage>, int, int)>(isLeaf: false);
 
   Pointer<GLFWcursor> createStandardCursor(int shape) => _glfwCreateStandardCursor(shape);
   late final _glfwCreateStandardCursor =
       _lookup<NativeFunction<Pointer<GLFWcursor> Function(Int)>>('glfwCreateStandardCursor')
-          .asFunction<Pointer<GLFWcursor> Function(int)>(isLeaf: true);
+          .asFunction<Pointer<GLFWcursor> Function(int)>(isLeaf: false);
 
   void destroyCursor(Pointer<GLFWcursor> cursor) => _glfwDestroyCursor(cursor);
   late final _glfwDestroyCursor = _lookup<NativeFunction<Void Function(Pointer<GLFWcursor>)>>('glfwDestroyCursor')
-      .asFunction<void Function(Pointer<GLFWcursor>)>(isLeaf: true);
+      .asFunction<void Function(Pointer<GLFWcursor>)>(isLeaf: false);
 
   void setCursor(Pointer<GLFWwindow> window, Pointer<GLFWcursor> cursor) => _glfwSetCursor(window, cursor);
   late final _glfwSetCursor =
       _lookup<NativeFunction<Void Function(Pointer<GLFWwindow>, Pointer<GLFWcursor>)>>('glfwSetCursor')
-          .asFunction<void Function(Pointer<GLFWwindow>, Pointer<GLFWcursor>)>(isLeaf: true);
+          .asFunction<void Function(Pointer<GLFWwindow>, Pointer<GLFWcursor>)>(isLeaf: false);
 
   Pointer<NativeFunction<Void Function(Pointer<GLFWwindow>, Int, Int, Int, Int)>> setKeyCallback(
           Pointer<GLFWwindow> window,
@@ -603,44 +603,44 @@ class GLFW {
 
   int joystickPresent(int jid) => _glfwJoystickPresent(jid);
   late final _glfwJoystickPresent =
-      _lookup<NativeFunction<Int Function(Int)>>('glfwJoystickPresent').asFunction<int Function(int)>(isLeaf: true);
+      _lookup<NativeFunction<Int Function(Int)>>('glfwJoystickPresent').asFunction<int Function(int)>(isLeaf: false);
 
   Pointer<Float> getJoystickAxes(int jid, Pointer<Int> count) => _glfwGetJoystickAxes(jid, count);
   late final _glfwGetJoystickAxes =
       _lookup<NativeFunction<Pointer<Float> Function(Int, Pointer<Int>)>>('glfwGetJoystickAxes')
-          .asFunction<Pointer<Float> Function(int, Pointer<Int>)>(isLeaf: true);
+          .asFunction<Pointer<Float> Function(int, Pointer<Int>)>(isLeaf: false);
 
   Pointer<UnsignedChar> getJoystickButtons(int jid, Pointer<Int> count) => _glfwGetJoystickButtons(jid, count);
   late final _glfwGetJoystickButtons =
       _lookup<NativeFunction<Pointer<UnsignedChar> Function(Int, Pointer<Int>)>>('glfwGetJoystickButtons')
-          .asFunction<Pointer<UnsignedChar> Function(int, Pointer<Int>)>(isLeaf: true);
+          .asFunction<Pointer<UnsignedChar> Function(int, Pointer<Int>)>(isLeaf: false);
 
   Pointer<UnsignedChar> getJoystickHats(int jid, Pointer<Int> count) => _glfwGetJoystickHats(jid, count);
   late final _glfwGetJoystickHats =
       _lookup<NativeFunction<Pointer<UnsignedChar> Function(Int, Pointer<Int>)>>('glfwGetJoystickHats')
-          .asFunction<Pointer<UnsignedChar> Function(int, Pointer<Int>)>(isLeaf: true);
+          .asFunction<Pointer<UnsignedChar> Function(int, Pointer<Int>)>(isLeaf: false);
 
   Pointer<Char> getJoystickName(int jid) => _glfwGetJoystickName(jid);
   late final _glfwGetJoystickName = _lookup<NativeFunction<Pointer<Char> Function(Int)>>('glfwGetJoystickName')
-      .asFunction<Pointer<Char> Function(int)>(isLeaf: true);
+      .asFunction<Pointer<Char> Function(int)>(isLeaf: false);
 
   Pointer<Char> getJoystickGUID(int jid) => _glfwGetJoystickGUID(jid);
   late final _glfwGetJoystickGUID = _lookup<NativeFunction<Pointer<Char> Function(Int)>>('glfwGetJoystickGUID')
-      .asFunction<Pointer<Char> Function(int)>(isLeaf: true);
+      .asFunction<Pointer<Char> Function(int)>(isLeaf: false);
 
   void setJoystickUserPointer(int jid, Pointer<Void> pointer) => _glfwSetJoystickUserPointer(jid, pointer);
   late final _glfwSetJoystickUserPointer =
       _lookup<NativeFunction<Void Function(Int, Pointer<Void>)>>('glfwSetJoystickUserPointer')
-          .asFunction<void Function(int, Pointer<Void>)>(isLeaf: true);
+          .asFunction<void Function(int, Pointer<Void>)>(isLeaf: false);
 
   Pointer<Void> getJoystickUserPointer(int jid) => _glfwGetJoystickUserPointer(jid);
   late final _glfwGetJoystickUserPointer =
       _lookup<NativeFunction<Pointer<Void> Function(Int)>>('glfwGetJoystickUserPointer')
-          .asFunction<Pointer<Void> Function(int)>(isLeaf: true);
+          .asFunction<Pointer<Void> Function(int)>(isLeaf: false);
 
   int joystickIsGamepad(int jid) => _glfwJoystickIsGamepad(jid);
   late final _glfwJoystickIsGamepad =
-      _lookup<NativeFunction<Int Function(Int)>>('glfwJoystickIsGamepad').asFunction<int Function(int)>(isLeaf: true);
+      _lookup<NativeFunction<Int Function(Int)>>('glfwJoystickIsGamepad').asFunction<int Function(int)>(isLeaf: false);
 
   Pointer<NativeFunction<Void Function(Int, Int)>> setJoystickCallback(
           Pointer<NativeFunction<Void Function(Int, Int)>> callback) =>
@@ -656,78 +656,78 @@ class GLFW {
   int updateGamepadMappings(Pointer<Char> string) => _glfwUpdateGamepadMappings(string);
   late final _glfwUpdateGamepadMappings =
       _lookup<NativeFunction<Int Function(Pointer<Char>)>>('glfwUpdateGamepadMappings')
-          .asFunction<int Function(Pointer<Char>)>(isLeaf: true);
+          .asFunction<int Function(Pointer<Char>)>(isLeaf: false);
 
   Pointer<Char> getGamepadName(int jid) => _glfwGetGamepadName(jid);
   late final _glfwGetGamepadName = _lookup<NativeFunction<Pointer<Char> Function(Int)>>('glfwGetGamepadName')
-      .asFunction<Pointer<Char> Function(int)>(isLeaf: true);
+      .asFunction<Pointer<Char> Function(int)>(isLeaf: false);
 
   int getGamepadState(int jid, Pointer<GLFWgamepadstate> state) => _glfwGetGamepadState(jid, state);
   late final _glfwGetGamepadState =
       _lookup<NativeFunction<Int Function(Int, Pointer<GLFWgamepadstate>)>>('glfwGetGamepadState')
-          .asFunction<int Function(int, Pointer<GLFWgamepadstate>)>(isLeaf: true);
+          .asFunction<int Function(int, Pointer<GLFWgamepadstate>)>(isLeaf: false);
 
   void setClipboardString(Pointer<GLFWwindow> window, Pointer<Char> string) => _glfwSetClipboardString(window, string);
   late final _glfwSetClipboardString =
       _lookup<NativeFunction<Void Function(Pointer<GLFWwindow>, Pointer<Char>)>>('glfwSetClipboardString')
-          .asFunction<void Function(Pointer<GLFWwindow>, Pointer<Char>)>(isLeaf: true);
+          .asFunction<void Function(Pointer<GLFWwindow>, Pointer<Char>)>(isLeaf: false);
 
   Pointer<Char> getClipboardString(Pointer<GLFWwindow> window) => _glfwGetClipboardString(window);
   late final _glfwGetClipboardString =
       _lookup<NativeFunction<Pointer<Char> Function(Pointer<GLFWwindow>)>>('glfwGetClipboardString')
-          .asFunction<Pointer<Char> Function(Pointer<GLFWwindow>)>(isLeaf: true);
+          .asFunction<Pointer<Char> Function(Pointer<GLFWwindow>)>(isLeaf: false);
 
   double getTime() => _glfwGetTime();
   late final _glfwGetTime =
-      _lookup<NativeFunction<Double Function()>>('glfwGetTime').asFunction<double Function()>(isLeaf: true);
+      _lookup<NativeFunction<Double Function()>>('glfwGetTime').asFunction<double Function()>(isLeaf: false);
 
   void setTime(double time) => _glfwSetTime(time);
   late final _glfwSetTime =
-      _lookup<NativeFunction<Void Function(Double)>>('glfwSetTime').asFunction<void Function(double)>(isLeaf: true);
+      _lookup<NativeFunction<Void Function(Double)>>('glfwSetTime').asFunction<void Function(double)>(isLeaf: false);
 
   int getTimerValue() => _glfwGetTimerValue();
   late final _glfwGetTimerValue =
-      _lookup<NativeFunction<Uint64 Function()>>('glfwGetTimerValue').asFunction<int Function()>(isLeaf: true);
+      _lookup<NativeFunction<Uint64 Function()>>('glfwGetTimerValue').asFunction<int Function()>(isLeaf: false);
 
   int getTimerFrequency() => _glfwGetTimerFrequency();
   late final _glfwGetTimerFrequency =
-      _lookup<NativeFunction<Uint64 Function()>>('glfwGetTimerFrequency').asFunction<int Function()>(isLeaf: true);
+      _lookup<NativeFunction<Uint64 Function()>>('glfwGetTimerFrequency').asFunction<int Function()>(isLeaf: false);
 
   void makeContextCurrent(Pointer<GLFWwindow> window) => _glfwMakeContextCurrent(window);
   late final _glfwMakeContextCurrent =
       _lookup<NativeFunction<Void Function(Pointer<GLFWwindow>)>>('glfwMakeContextCurrent')
-          .asFunction<void Function(Pointer<GLFWwindow>)>(isLeaf: true);
+          .asFunction<void Function(Pointer<GLFWwindow>)>(isLeaf: false);
 
   Pointer<GLFWwindow> getCurrentContext() => _glfwGetCurrentContext();
   late final _glfwGetCurrentContext = _lookup<NativeFunction<Pointer<GLFWwindow> Function()>>('glfwGetCurrentContext')
-      .asFunction<Pointer<GLFWwindow> Function()>(isLeaf: true);
+      .asFunction<Pointer<GLFWwindow> Function()>(isLeaf: false);
 
   void swapBuffers(Pointer<GLFWwindow> window) => _glfwSwapBuffers(window);
   late final _glfwSwapBuffers = _lookup<NativeFunction<Void Function(Pointer<GLFWwindow>)>>('glfwSwapBuffers')
-      .asFunction<void Function(Pointer<GLFWwindow>)>(isLeaf: true);
+      .asFunction<void Function(Pointer<GLFWwindow>)>(isLeaf: false);
 
   void swapInterval(int interval) => _glfwSwapInterval(interval);
   late final _glfwSwapInterval =
-      _lookup<NativeFunction<Void Function(Int)>>('glfwSwapInterval').asFunction<void Function(int)>(isLeaf: true);
+      _lookup<NativeFunction<Void Function(Int)>>('glfwSwapInterval').asFunction<void Function(int)>(isLeaf: false);
 
   int extensionSupported(Pointer<Char> extension1) => _glfwExtensionSupported(extension1);
   late final _glfwExtensionSupported = _lookup<NativeFunction<Int Function(Pointer<Char>)>>('glfwExtensionSupported')
-      .asFunction<int Function(Pointer<Char>)>(isLeaf: true);
+      .asFunction<int Function(Pointer<Char>)>(isLeaf: false);
 
   Pointer<NativeFunction<Void Function()>> getProcAddress(Pointer<Char> procname) => _glfwGetProcAddress(procname);
   late final _glfwGetProcAddress =
       _lookup<NativeFunction<Pointer<NativeFunction<Void Function()>> Function(Pointer<Char>)>>('glfwGetProcAddress')
-          .asFunction<Pointer<NativeFunction<Void Function()>> Function(Pointer<Char>)>(isLeaf: true);
+          .asFunction<Pointer<NativeFunction<Void Function()>> Function(Pointer<Char>)>(isLeaf: false);
 
   int vulkanSupported() => _glfwVulkanSupported();
   late final _glfwVulkanSupported =
-      _lookup<NativeFunction<Int Function()>>('glfwVulkanSupported').asFunction<int Function()>(isLeaf: true);
+      _lookup<NativeFunction<Int Function()>>('glfwVulkanSupported').asFunction<int Function()>(isLeaf: false);
 
   Pointer<Pointer<Char>> getRequiredInstanceExtensions(Pointer<Uint32> count) =>
       _glfwGetRequiredInstanceExtensions(count);
   late final _glfwGetRequiredInstanceExtensions =
       _lookup<NativeFunction<Pointer<Pointer<Char>> Function(Pointer<Uint32>)>>('glfwGetRequiredInstanceExtensions')
-          .asFunction<Pointer<Pointer<Char>> Function(Pointer<Uint32>)>(isLeaf: true);
+          .asFunction<Pointer<Pointer<Char>> Function(Pointer<Uint32>)>(isLeaf: false);
 }
 
 final class GLFWmonitor extends Opaque {}

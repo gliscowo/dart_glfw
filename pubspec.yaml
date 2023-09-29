@@ -1,6 +1,6 @@
 name: dart_glfw
 description: Dart bindings for the GLFW windowing library
-version: 0.1.0
+version: 0.1.1
 repository: https://github.com/gliscowo/dart_glfw
 
 environment:
