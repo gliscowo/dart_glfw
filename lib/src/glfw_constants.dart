@@ -1,11 +1,14 @@
 const int glfwVersionMajor = 3;
-const int glfwVersionMinor = 3;
-const int glfwVersionRevision = 8;
+const int glfwVersionMinor = 4;
+const int glfwVersionRevision = 0;
+
 const int glfwTrue = 1;
 const int glfwFalse = 0;
+
 const int glfwRelease = 0;
 const int glfwPress = 1;
 const int glfwRepeat = 2;
+
 const int glfwHatCentered = 0;
 const int glfwHatUp = 1;
 const int glfwHatRight = 2;
@@ -15,6 +18,7 @@ const int glfwHatRightUp = 3;
 const int glfwHatRightDown = 6;
 const int glfwHatLeftUp = 9;
 const int glfwHatLeftDown = 12;
+
 const int glfwKeyUnknown = -1;
 const int glfwKeySpace = 32;
 const int glfwKeyApostrophe = 39;
@@ -137,12 +141,14 @@ const int glfwKeyRightAlt = 346;
 const int glfwKeyRightSuper = 347;
 const int glfwKeyMenu = 348;
 const int glfwKeyLast = 348;
+
 const int glfwModShift = 1;
 const int glfwModControl = 2;
 const int glfwModAlt = 4;
 const int glfwModSuper = 8;
 const int glfwModCapsLock = 16;
 const int glfwModNumLock = 32;
+
 const int glfwMouseButton1 = 0;
 const int glfwMouseButton2 = 1;
 const int glfwMouseButton3 = 2;
@@ -155,6 +161,7 @@ const int glfwMouseButtonLast = 7;
 const int glfwMouseButtonLeft = 0;
 const int glfwMouseButtonRight = 1;
 const int glfwMouseButtonMiddle = 2;
+
 const int glfwJoystick1 = 0;
 const int glfwJoystick2 = 1;
 const int glfwJoystick3 = 2;
@@ -172,6 +179,7 @@ const int glfwJoystick14 = 13;
 const int glfwJoystick15 = 14;
 const int glfwJoystick16 = 15;
 const int glfwJoystickLast = 15;
+
 const int glfwGamepadButtonA = 0;
 const int glfwGamepadButtonB = 1;
 const int glfwGamepadButtonX = 2;
@@ -199,6 +207,7 @@ const int glfwGamepadAxisRightY = 3;
 const int glfwGamepadAxisLeftTrigger = 4;
 const int glfwGamepadAxisRightTrigger = 5;
 const int glfwGamepadAxisLast = 5;
+
 const int glfwNoError = 0;
 const int glfwNotInitialized = 65537;
 const int glfwNoCurrentContext = 65538;
@@ -210,6 +219,11 @@ const int glfwVersionUnavailable = 65543;
 const int glfwPlatformError = 65544;
 const int glfwFormatUnavailable = 65545;
 const int glfwNoWindowContext = 65546;
+const int glfwCursorUnavailable = 65547;
+const int glfwFeatureUnavailable = 65548;
+const int glfwFeatureUnimplemented = 65549;
+const int glfwPlatformUnavailable = 65550;
+
 const int glfwFocused = 131073;
 const int glfwIconified = 131074;
 const int glfwResizable = 131075;
@@ -222,6 +236,9 @@ const int glfwCenterCursor = 131081;
 const int glfwTransparentFramebuffer = 131082;
 const int glfwHovered = 131083;
 const int glfwFocusOnShow = 131084;
+const int glfwMousePassthrough = 131085;
+const int glfwPositionX = 131086;
+const int glfwPositionY = 131087;
 const int glfwRedBits = 135169;
 const int glfwGreenBits = 135170;
 const int glfwBlueBits = 135171;
@@ -244,49 +261,97 @@ const int glfwContextVersionMinor = 139267;
 const int glfwContextRevision = 139268;
 const int glfwContextRobustness = 139269;
 const int glfwOpenglForwardCompat = 139270;
+const int glfwContextDebug = 139271;
 const int glfwOpenglDebugContext = 139271;
 const int glfwOpenglProfile = 139272;
 const int glfwContextReleaseBehavior = 139273;
 const int glfwContextNoError = 139274;
 const int glfwContextCreationApi = 139275;
 const int glfwScaleToMonitor = 139276;
+const int glfwScaleFramebuffer = 139277;
 const int glfwCocoaRetinaFramebuffer = 143361;
 const int glfwCocoaFrameName = 143362;
 const int glfwCocoaGraphicsSwitching = 143363;
 const int glfwX11ClassName = 147457;
 const int glfwX11InstanceName = 147458;
+const int glfwWin32KeyboardMenu = 151553;
+const int glfwWin32Showdefault = 151554;
+const int glfwWaylandAppId = 155649;
+
 const int glfwNoApi = 0;
 const int glfwOpenglApi = 196609;
 const int glfwOpenglEsApi = 196610;
+
 const int glfwNoRobustness = 0;
 const int glfwNoResetNotification = 200705;
 const int glfwLoseContextOnReset = 200706;
+
 const int glfwOpenglAnyProfile = 0;
 const int glfwOpenglCoreProfile = 204801;
 const int glfwOpenglCompatProfile = 204802;
+
 const int glfwCursor = 208897;
 const int glfwStickyKeys = 208898;
 const int glfwStickyMouseButtons = 208899;
 const int glfwLockKeyMods = 208900;
 const int glfwRawMouseMotion = 208901;
+
 const int glfwCursorNormal = 212993;
 const int glfwCursorHidden = 212994;
 const int glfwCursorDisabled = 212995;
+const int glfwCursorCaptured = 212996;
+
 const int glfwAnyReleaseBehavior = 0;
 const int glfwReleaseBehaviorFlush = 217089;
 const int glfwReleaseBehaviorNone = 217090;
+
 const int glfwNativeContextApi = 221185;
 const int glfwEglContextApi = 221186;
 const int glfwOsmesaContextApi = 221187;
+
+const int glfwAnglePlatformTypeNone = 225281;
+const int glfwAnglePlatformTypeOpengl = 225282;
+const int glfwAnglePlatformTypeOpengles = 225283;
+const int glfwAnglePlatformTypeD3d9 = 225284;
+const int glfwAnglePlatformTypeD3d11 = 225285;
+const int glfwAnglePlatformTypeVulkan = 225287;
+const int glfwAnglePlatformTypeMetal = 225288;
+
+const int glfwWaylandPreferLibdecor = 229377;
+const int glfwWaylandDisableLibdecor = 229378;
+
+const int glfwAnyPosition = 2147483648;
+
 const int glfwArrowCursor = 221185;
 const int glfwIbeamCursor = 221186;
 const int glfwCrosshairCursor = 221187;
-const int glfwHandCursor = 221188;
+const int glfwPointingHandCursor = 221188;
+const int glfwResizeEwCursor = 221189;
+const int glfwResizeNsCursor = 221190;
+const int glfwResizeNwseCursor = 221191;
+const int glfwResizeNeswCursor = 221192;
+const int glfwResizeAllCursor = 221193;
+const int glfwNotAllowedCursor = 221194;
 const int glfwHresizeCursor = 221189;
 const int glfwVresizeCursor = 221190;
+const int glfwHandCursor = 221188;
+
 const int glfwConnected = 262145;
 const int glfwDisconnected = 262146;
+
 const int glfwJoystickHatButtons = 327681;
+const int glfwAnglePlatformType = 327682;
+const int glfwPlatform = 327683;
 const int glfwCocoaChdirResources = 331777;
 const int glfwCocoaMenubar = 331778;
+const int glfwX11XcbVulkanSurface = 335873;
+const int glfwWaylandLibdecor = 339969;
+
+const int glfwAnyPlatform = 393216;
+const int glfwPlatformWin32 = 393217;
+const int glfwPlatformCocoa = 393218;
+const int glfwPlatformWayland = 393219;
+const int glfwPlatformX11 = 393220;
+const int glfwPlatformNull = 393221;
+
 const int glfwDontCare = -1;
