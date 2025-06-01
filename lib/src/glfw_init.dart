@@ -5,7 +5,7 @@ import 'glfw_functions.dart';
 GLFW? _instance;
 
 /// Load the GLFW functions from the binary located at [binaryPath]
-GLFW loadGLFW(String libraryPath) {
+GLFW loadGLFWFromPath(String libraryPath) {
   if (_instance != null) return _instance!;
 
   DynamicLibrary glfwLibrary;
@@ -15,9 +15,16 @@ GLFW loadGLFW(String libraryPath) {
     throw GLFWInitError("Failed to load GLFW binary", e);
   }
 
+  return loadGLFW(glfwLibrary);
+}
+
+/// Load the GLFW functions from [library]
+GLFW loadGLFW(DynamicLibrary library) {
+  if (_instance != null) return _instance!;
+
   Pointer<T> lookupSymbol<T extends NativeType>(String symbol) {
-    if (glfwLibrary.providesSymbol(symbol)) {
-      return glfwLibrary.lookup(symbol);
+    if (library.providesSymbol(symbol)) {
+      return library.lookup(symbol);
     } else {
       return nullptr;
     }
