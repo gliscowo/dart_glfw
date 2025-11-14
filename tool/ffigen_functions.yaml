@@ -1,0 +1,18 @@
+output: '../lib/src/glfw_functions.dart'
+headers:
+  entry-points:
+    - 'glfw.h'
+
+ffi-native:
+  asset-id: 'package:dart_glfw/glfw'
+
+comments:
+  length: brief
+
+exclude-all-by-default: true
+functions:
+  include:
+    - 'glfw.*'
+
+name: 'GLFW'
+description: 'Bindings for the GLFW API'
